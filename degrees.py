@@ -91,6 +91,14 @@ def shortest_path(source, target):
 
     If no possible path, returns None.
     """
+    frontier = QueueFrontier()
+    start = Node(source,None,None)
+    frontier.add(start)
+    visitedNodes = set()
+    visitedNodes.add(source)
+
+    
+
 
     # TODO
     raise NotImplementedError
