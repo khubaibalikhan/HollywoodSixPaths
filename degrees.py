@@ -97,7 +97,21 @@ def shortest_path(source, target):
     visitedNodes = set()
     visitedNodes.add(source)
 
+    while not frontier.empty():
+        node = frontier.remove()
+        currentPerson = node.state
+        if currentPerson == target:
+            path = []
+            while node.parent is not None:
+                path.append(node.action, node.state)
+                node = node.parent
+            path.reverse()
     
+    # neighbors:
+    
+                
+
+
 
 
     # TODO
