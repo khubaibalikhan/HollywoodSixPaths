@@ -113,14 +113,8 @@ def shortest_path(source, target):
             visitedNodes.add(neighbourId)
             child = Node(neighbourId, node, movieId) 
             frontier.add(child)
-                
-
-
-
-
-    # TODO
-    raise NotImplementedError
-
+            
+    return None
 
 def person_id_for_name(name):
     """
