@@ -108,7 +108,11 @@ def shortest_path(source, target):
             path.reverse()
     
     # neighbors:
-    
+    for movieId, neighbourId in neighbors_for_person(currentPerson):
+        if neighbourId  not in visitedNodes:
+            visitedNodes.add(neighbourId)
+            child = Node(neighbourId, node, movieId) 
+            frontier.add(child)
                 
 
 
