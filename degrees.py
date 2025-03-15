@@ -63,9 +63,11 @@ def main():
     print("Data loaded.")
 
     source = person_id_for_name(input("Name: "))
+    print(source)
     if source is None:
         sys.exit("Person not found.")
     target = person_id_for_name(input("Name: "))
+    print(target)
     if target is None:
         sys.exit("Person not found.")
 
@@ -98,23 +100,28 @@ def shortest_path(source, target):
     visitedNodes.add(source)
 
     while not frontier.empty():
+        print("first loop")
         node = frontier.remove()
         currentPerson = node.state
         if currentPerson == target:
             path = []
+            print("inside if")
             while node.parent is not None:
-                path.append(node.action, node.state)
+                path.append((node.action, node.state))
                 node = node.parent
             path.reverse()
+            return path
+         # neighbors:
+        for movieId, neighbourId in neighbors_for_person(currentPerson):
+            print("neigbor")
+            if neighbourId  not in visitedNodes:
+                visitedNodes.add(neighbourId)
+                child = Node(neighbourId, node, movieId) 
+                frontier.add(child)
+        
     
-    # neighbors:
-    for movieId, neighbourId in neighbors_for_person(currentPerson):
-        if neighbourId  not in visitedNodes:
-            visitedNodes.add(neighbourId)
-            child = Node(neighbourId, node, movieId) 
-            frontier.add(child)
-            
-    return None
+   
+
 
 def person_id_for_name(name):
     """
